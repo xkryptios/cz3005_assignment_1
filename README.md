@@ -51,7 +51,10 @@ nodes are set to be ‘1’ and ‘50’, respectively.
 (Please note that the NYC instance is provided separately as formatted in section 1.1)
 
 # 2.2 Output format
-The output of your algorithm should be formatted as the following (using Figure 1 as an example):
-Shortest path: S->1->T.
+The output of your algorithm should be formatted as the following (using Figure 1 as an example):  
+
+Shortest path: S->1->T.  
+
 Shortest distance: 12.
+
 Total energy cost: 10.
