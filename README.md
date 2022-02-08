@@ -32,14 +32,14 @@ The energy cost between a pair of node (v, w) can be accessed with Cost[â€˜v,wâ€
 
 
 # 2.1 Tasks and marking criteria
-You will need to solve three tasks that are listed as follow:
+You will need to solve three tasks that are listed as follow:\n
 Task 1: You will need to solve a relaxed version of the NYC instance where we do not have the energy
 constraint. You can use any algorithm we discussed in the lectures. Note that this is equivalent to
 solving the shortest path problem.
-(30 marks)
+(30 marks)\n
 Task 2: You will need to implement an uninformed search algorithm (e.g., the DFS, BFS, UCS) to solve
 the NYC instance.
-(30 marks)
+(30 marks)\n
 Task 3: You will need to develop an A* search algorithm to solve the NYC instance. The key is to
 develop a suitable heuristic function for the A* search algorithm in this setting.
 (40 marks)
