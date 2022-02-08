@@ -21,25 +21,28 @@ S->1->T is the shortest feasible path.
 You will be given a problem instance of New York city (NYC) road network of the United State. This
 instance is taken and modified from the 9th DIMACS implementation challenge. This instance has
 264346 nodes and 730100 edges. You will be given four python dictionary files:
-1.1.1 Graph dictionary G
+1.1.1 Graph dictionary G. 
 The graph is given as an adjacency list where the neighbor list of node ‘v’ can be accessed with G[‘v’].
-1.1.2 Node coordination dictionary Coord
+1.1.2 Node coordination dictionary Coord. 
 The coordination of a node ‘v’ is a pair (X, Y) which can be accessed with Coord[‘v’]
-1.1.3 Edge distance dictionary Dist
+1.1.3 Edge distance dictionary Dist. 
 The distance between a pair of node (v, w) can be accessed with Dist[‘v,w’].
 1.1.4 Edge cost dictionary Cost
 The energy cost between a pair of node (v, w) can be accessed with Cost[‘v,w’.]
 
 
 # 2.1 Tasks and marking criteria
-You will need to solve three tasks that are listed as follow:\n
+You will need to solve three tasks that are listed as follow:  
+
 Task 1: You will need to solve a relaxed version of the NYC instance where we do not have the energy
 constraint. You can use any algorithm we discussed in the lectures. Note that this is equivalent to
 solving the shortest path problem.
-(30 marks)\n
+(30 marks)  
+
 Task 2: You will need to implement an uninformed search algorithm (e.g., the DFS, BFS, UCS) to solve
 the NYC instance.
-(30 marks)\n
+(30 marks). 
+
 Task 3: You will need to develop an A* search algorithm to solve the NYC instance. The key is to
 develop a suitable heuristic function for the A* search algorithm in this setting.
 (40 marks)
