@@ -1,0 +1,22 @@
+add start pq_node to pq
+
+while (pq is not empty)
+    node = pop least cost node
+    
+    
+
+    if pq_node is a goal node:
+        record the cost to the goal
+        record the parent of this node
+        return getPath(parent),cost
+    else if pq_node is not visited
+        add this node to visited
+        record parent
+
+        for each of its adj nodes:
+            cost_to_child = this_node_cost + (cost between this node and child node)
+
+            add a pq_node into the pq => [cost_to_child,child_index,parent_index]
+    
+
+
