@@ -29,11 +29,11 @@ class Graph:
         xyCoord = self.coord[goal]
         xCoordGoal = xyCoord[0]
         yCoordGoal = xyCoord[1]
-        print('xcoordGoal' + str(xCoordGoal) + 'xcoordGoal' + str(yCoordGoal))
+        #print('xcoordGoal' + str(xCoordGoal) + 'xcoordGoal' + str(yCoordGoal))
         parent = {}
         final_cost = 10**8
         visited = []
-        """"
+
         pq = []
         # [heuristic(straight line distance to goal + cost to this node),
         # cost to this node, total budget to this node, node_index, parent_node]
@@ -82,7 +82,6 @@ class Graph:
                     pq_node = [heuristic, cost_to_child,
                                total_budget_to_child, child, node_index]
                     pq.append(pq_node)
-                    """
 
     def get_path(self, parent, start, goal):
         # assuming start , goal are strings
