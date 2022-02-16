@@ -31,7 +31,6 @@ class Graph:
         pq_node = [0, start, "-1"]
 
         pq.append(pq_node)
-
         while (len(pq) > 0):  # while pq is not empty
             pq.sort()
             current_pq_node = pq.pop(0)
@@ -51,8 +50,9 @@ class Graph:
                 parent[node_index] = parent_node_index
 
                 for child in self.graph[node_index]:
+
                     string_param = node_index+','+child
-                    print(string_param)
+                    # print(string_param)
                     cost_to_child = self.dist[string_param] + cost_to_this_node
 
                     pq_node = [cost_to_child, child, node_index]
