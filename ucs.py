@@ -1,6 +1,7 @@
 
 from dis import dis
 import json
+import time
 
 # implementation of question 1 with Uniform cost search
 
@@ -54,7 +55,6 @@ class Graph:
                     string_param = node_index+','+child
                     # print(string_param)
                     cost_to_child = self.dist[string_param] + cost_to_this_node
-
                     pq_node = [cost_to_child, child, node_index]
                     pq.append(pq_node)
 
@@ -62,15 +62,20 @@ class Graph:
         # assuming start , goal are strings
         # parent is a dictionary
         temp = goal
+        count = 1
         print(goal, "<-", end="")
         while parent[temp] != start:
+            count = count + 1
             print(parent[temp], "<-", end="")
             temp = parent[temp]
         print(start, end="")
+        print("length =", count+1)
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     g = json.load(open("G.json"))
     dist = json.load(open("Dist.json"))
     graph = Graph(g, dist)
     graph.uniform_cost_search(1, 50)
+    print(time.time() - start_time, "seconds")

@@ -31,7 +31,7 @@ class Graph:
         visited = []
 
         pq = []
-        # [heuristic + energy, cost to this node, total budget to this node, node_index, parent_node, heuristic]
+        # [heuristic(straight line + cost), cost to this node, total budget to this node, node_index, parent_node, heuristic]
         pq_node = [self.h(start) + 0, 0, 0, start, "-1", self.h(start)]
 
         pq.append(pq_node)
@@ -62,8 +62,8 @@ class Graph:
                     total_budget_to_child = self.cost[string_param] + \
                         total_budget_to_this_node
 
-                    # if total_budget_to_child > self.BUDGET_CONSTRAINT:  # if budget too high, do not add this node to the pq
-                    #   continue
+                    if total_budget_to_child > self.BUDGET_CONSTRAINT:  # if budget too high, do not add this node to the pq
+                        continue
 
                     cost_to_child = self.dist[string_param] + cost_to_this_node
                     dist_from_goal = self.h(child)
@@ -77,11 +77,14 @@ class Graph:
         # assuming start , goal are strings
         # parent is a dictionary
         temp = goal
+        count = 1
         print(goal, "<-", end="")
         while parent[temp] != start:
+            count = count+1
             print(parent[temp], "<-", end="")
             temp = parent[temp]
         print(start, end="")
+        print("length = ", count+1)
 
     def h(self, n):
         val = math.sqrt((cord["50"][0] - cord[str(n)][0])
@@ -94,10 +97,10 @@ if __name__ == "__main__":
     dist = json.load(open("Dist.json"))
     cost = json.load(open("Cost.json"))
     cord = json.load(open("Coord.json"))
-    # combined_cost = {}
-    # print(len(dist),len(cost))
+    #combined_cost = {}
+    #print(len(dist), len(cost))
     # for key in dist:
-    #     combined_cost[key] = dist[key] + cost[key]
+    #    combined_cost[key] = dist[key] + cost[key]
 
     graph = Graph(g, dist, cost, cord)
     graph.uniform_cost_search(1, 50)

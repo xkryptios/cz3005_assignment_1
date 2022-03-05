@@ -44,9 +44,11 @@ class Graph:
             parent_node_index = current_pq_node[3]
 
             if (node_index == goal):
+                budget = total_budget_to_this_node
                 final_cost = cost_to_this_node
                 parent[node_index] = parent_node_index
                 self.get_path(parent, start, goal)
+                print("\nenergy cost = ", budget)
                 print("\ncost to travel =", final_cost)
                 return
             elif (node_index not in visited):
@@ -72,11 +74,14 @@ class Graph:
         # assuming start , goal are strings
         # parent is a dictionary
         temp = goal
+        count = 1
         print(goal, "<-", end="")
         while parent[temp] != start:
+            count = count+1
             print(parent[temp], "<-", end="")
             temp = parent[temp]
         print(start, end="")
+        print("length = ", count+1)
 
 
 if __name__ == "__main__":
