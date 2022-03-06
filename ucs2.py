@@ -1,6 +1,7 @@
 
 from dis import dis
 import json
+from collections import deque
 
 # implementation of question 2 with Uniform cost search
 
@@ -48,8 +49,8 @@ class Graph:
                 final_cost = cost_to_this_node
                 parent[node_index] = parent_node_index
                 self.get_path(parent, start, goal)
-                print("\nenergy cost = ", budget)
-                print("\ncost to travel =", final_cost)
+                print("\nShortest distance: ", final_cost)
+                print("\nTotal energy cost: ", budget)
                 return
             elif (node_index not in visited):
                 visited.append(node_index)
@@ -73,15 +74,30 @@ class Graph:
     def get_path(self, parent, start, goal):
         # assuming start , goal are strings
         # parent is a dictionary
+        # temp = goal
+        # count = 1
+        # print(goal, "<-", end="")
+        # while parent[temp] != start:
+        #     count = count+1
+        #     print(parent[temp], "<-", end="")
+        #     temp = parent[temp]
+        # print(start, end="")
+        # print("length = ", count+1)
+
+        stack = deque()
+        size = 0
         temp = goal
-        count = 1
-        print(goal, "<-", end="")
         while parent[temp] != start:
-            count = count+1
-            print(parent[temp], "<-", end="")
+            stack.append(parent[temp])
             temp = parent[temp]
-        print(start, end="")
-        print("length = ", count+1)
+            size += 1
+        print('Shortest path:')
+        print(start, "->", end="")
+        while(size > 0):
+            temp = stack.pop()
+            print(int(temp), "->", end="")
+            size -= 1
+        print(goal)
 
 
 if __name__ == "__main__":
