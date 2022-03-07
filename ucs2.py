@@ -22,6 +22,8 @@ class Graph:
         # start and goal are string of node index
         # assuming only 1 goal
 
+        total_nodes_expanded_counter = 0
+
         # initialisation
         start = str(start)
         goal = str(goal)
@@ -38,7 +40,6 @@ class Graph:
         while (len(pq) > 0):  # while pq is not empty
             pq.sort()
             current_pq_node = pq.pop(0)
-
             cost_to_this_node = current_pq_node[0]
             total_budget_to_this_node = current_pq_node[1]
             node_index = current_pq_node[2]
@@ -51,8 +52,11 @@ class Graph:
                 self.get_path(parent, start, goal)
                 print("\nShortest distance: ", final_cost)
                 print("\nTotal energy cost: ", budget)
+                print("\nTotal nodes expanded: ", total_nodes_expanded_counter)
                 return
             elif (node_index not in visited):
+                total_nodes_expanded_counter += 1
+
                 visited.append(node_index)
                 parent[node_index] = parent_node_index
 

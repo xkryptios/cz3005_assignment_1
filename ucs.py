@@ -21,13 +21,14 @@ class Graph:
         # start and goal are string of node index
         # assuming only 1 goal
 
+        total_nodes_expanded_counter = 0
+
         # initialisation
         start = str(start)
         goal = str(goal)
         parent = {}
         final_cost = 0
         visited = []
-
         pq = []
         # [cost to this node, node_index, parent_node]
         pq_node = [0, start, "-1"]
@@ -46,8 +47,11 @@ class Graph:
                 parent[node_index] = parent_node_index
                 self.get_path(parent, start, goal)
                 print("\nShortest distance :", final_cost)
+                print("\ntotal nodes expanded :", total_nodes_expanded_counter)
                 return
             elif (node_index not in visited):
+                total_nodes_expanded_counter += 1
+
                 visited.append(node_index)
                 parent[node_index] = parent_node_index
 
